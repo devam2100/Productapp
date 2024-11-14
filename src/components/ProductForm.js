@@ -22,9 +22,9 @@ const ProductForm = () => {
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleFileChange = (e) => {
-    setFormData({ ...formData});
-  };
+  // const handleFileChange = (e) => {
+  //   setFormData({ ...formData});
+  // };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -46,7 +46,7 @@ const ProductForm = () => {
     <form onSubmit={handleSubmit} style={{ maxWidth: '400px', margin: '0 auto' }}>
       <h2>{editingProduct ? 'Edit Product' : 'Add Product'}</h2>
       
-      <div style={{ marginBottom: '10px' }}>
+      <div style={{ marginBottom: '10px'}}>
         <label>
           Product Title:
           <input

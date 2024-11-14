@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import ProductSearch from './searchBar';
 
 const ProductList = () => {
   const navigate = useNavigate();
@@ -20,7 +21,8 @@ const ProductList = () => {
     navigate('/', { state: { product } });
   };
 
-  return (
+  return (<>
+    <div><ProductSearch></ProductSearch></div>
     <div style={{ maxWidth: '600px', margin: '0 auto' }}>
       <h2>Product List</h2>
       {products.length === 0 ? (
@@ -29,7 +31,8 @@ const ProductList = () => {
         <ul style={{ listStyle: 'none', padding: 0 }}>
           {products.map((product) => (
             <li key={product.id} style={{ marginBottom: '20px', border: '1px solid #ccc', padding: '10px' }}>
-              <h3>{product.title}</h3>
+              <h3>{product.id}</h3>
+              <h2>{product.title}</h2>
               <p>Price: ${product.price}</p>
               <p>Category: {product.category}</p>
               <p>Description: {product.description}</p>
@@ -55,6 +58,7 @@ const ProductList = () => {
         Add New Product
       </button>
     </div>
+    </>
   );
 };
 
