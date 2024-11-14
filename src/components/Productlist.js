@@ -33,13 +33,6 @@ const ProductList = () => {
               <p>Price: ${product.price}</p>
               <p>Category: {product.category}</p>
               <p>Description: {product.description}</p>
-              {product.image && (
-                <img
-                  src={product.image}
-                  alt={product.title}
-                  style={{ width: '100px', height: '100px', objectFit: 'cover' }}
-                />
-              )}
               <div>
                 <button
                   onClick={() => handleEdit(product)}

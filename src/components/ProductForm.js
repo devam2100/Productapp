@@ -12,7 +12,6 @@ const ProductForm = () => {
     price: editingProduct?.price || '',
     description: editingProduct?.description || '',
     category: editingProduct?.category || '',
-    image: editingProduct?.image || null,
   });
 
   
@@ -24,7 +23,7 @@ const ProductForm = () => {
   };
 
   const handleFileChange = (e) => {
-    setFormData({ ...formData, image: e.target.files[0] });
+    setFormData({ ...formData});
   };
 
   const handleSubmit = (e) => {
@@ -109,17 +108,6 @@ const ProductForm = () => {
         </label>
       </div>
       
-      <div style={{ marginBottom: '10px' }}>
-        <label>
-          Upload Image:
-          <input
-            type="file"
-            onChange={handleFileChange}
-            style={{ marginTop: '5px' }}
-            accept="image/*"
-          />
-        </label>
-      </div>
       
       <button type="submit" style={{ padding: '10px 20px', backgroundColor: 'blue', color: 'white', border: 'none', cursor: 'pointer' }}>
         {editingProduct ? 'Update' : 'Submit'}
