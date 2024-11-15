@@ -17,23 +17,31 @@ const ProductSearch = () => {
   };
 
   const handleSearch = () => {
+    const query = searchQuery.trim(); 
+  
+    if (!query) {
+     
+      setFilteredProduct(null);
+      alert("Please enter a valid search term!");
+      return;
+    }
+  
     if (!products || products.length === 0) {
       console.warn('No products available in localStorage');
       setFilteredProduct(null);
       return;
     }
-
+  
     
     const product = products.find(
       (p) =>
-        p.id.toString() === searchQuery.trim() || 
-        p.title.toLowerCase().includes(searchQuery.trim().toLowerCase()) || 
-        p.category.toLowerCase().includes(searchQuery.trim().toLowerCase()) 
+        p.id.toString() === query || 
+        p.title.toLowerCase().includes(query.toLowerCase()) || 
+        p.category.toLowerCase().includes(query.toLowerCase()) 
     );
-
+  
     setFilteredProduct(product || null);
   };
-
   return (
     <div style={{ padding: '20px', maxWidth: '600px', margin: '0 auto' }}>
       <h1>Search Product by ID, Title, or Category</h1>
